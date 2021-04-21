@@ -2,13 +2,12 @@
 import os
 import csv
 firstRec = 0
-recOne = 0
 pyBank = []
 pyBankUpdated = [] 
 
 firstPL = 0
 lastPL = 0
-monthlyChange_list = ['Average Monthly Profit & Loss Change', 0]
+monthlyChange_list = ['Avg Monthly P&L Change', 0]
 
 totalMonthlyChange = 0
 priorMonth = 0
@@ -24,7 +23,8 @@ greatestIncrease = 0
 greatestDecrease = 0
 
 
-csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pybank\Resources','budget_data.csv')
+#csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pybank\Resources','budget_data.csv')
+os.chdir('PyBank\Resources')
 with open('budget_data.csv', encoding="ISO 8859-1") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter = ',')
     for row in csv_reader:
@@ -36,7 +36,7 @@ for row in pyBank:
         totalPL += int(row[1])
     else:
         firstRec = 1   
-firstRec = 0     #firstRec is used Greatest Increase & Greatest Decrease Below
+firstRec = 0     
 
 
 #CALCULATE TOTAL PL CHANGES
@@ -47,10 +47,10 @@ totalPLChanges = lastPL - firstPL
 
 #CALCULATE AVERAGE CHANGE P&L - MONTHLY
 for row in pyBank:
-    if recOne == 0:      #Disregard header row
-        recOne = 1
-    elif recOne == 1:    #Disregard first monthly change value = 0
-        recOne = 2
+    if firstRec == 0:      
+        firstRec = 1
+    elif firstRec == 1:    
+        firstRec = 2
         priorMonth = int(row[-1])
     else:
         changePL = int(row[-1]) - priorMonth 
@@ -59,11 +59,12 @@ for row in pyBank:
         priorMonth = int(row[-1])
         changePL = 0
 
+firstRec = 0
 
 #CACLUCATE AVERAGE MONTHLY CHANGE
 totalMonths = (len(monthlyChange_list) - 1)
 avgMonthlyChange = round(totalMonthlyChange / (totalMonths - 1), 2)
-print(avgMonthlyChange) # --- -2315.12
+print(avgMonthlyChange) 
 
 #New List with months, p&l and monthly change
 pyBankUpdated = zip(pyBank, monthlyChange_list)
@@ -80,6 +81,7 @@ for row in pyBankUpdated:
             greatestDecrease = int(row[1])
             dateDecrease = row[0][0]
 
+firstRec = 0
 
 
 line1 = 'Financial Analysis \n'
