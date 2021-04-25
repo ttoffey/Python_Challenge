@@ -87,7 +87,7 @@ def myFunc(e):
     return e["Votes"]
 votesList = [{"Candidate": "Correy", "Votes": correy_ctr, "Percent": correyPercent}, {"Candidate": "Khan", "Votes": khan_ctr, "Percent": khanPercent}, {"Candidate": "Li", "Votes": li_ctr, "Percent": liPercent}, {"Candidate": "O'Tooley", "Votes": otooley_ctr, "Percent": otooleyPercent}]
 votesList.sort(reverse=True, key=myFunc)
-print(votesList)
+#print(votesList)
 
 khanPercent = "{:.3%}".format(khanPercent/100)
 correyPercent = "{:.3%}".format(correyPercent/100)
@@ -108,7 +108,7 @@ votesList[2]['Percent'] = liPercent
 votesList[3]['Votes'] = otooley_ctr
 votesList[3]['Percent'] = otooleyPercent
 
-print(votesList)
+#print(votesList)
 
 #Analysis
 
@@ -127,7 +127,7 @@ my_file = open('../Analysis/Analysis.txt', 'w')
 my_file.write(line1)
 my_file.writelines(lines)
 my_file.close()
-print("Writing Complete\n\n")
+#print("Writing Complete\n\n")
 
 print(open('../Analysis/Analysis.txt').read())
 
