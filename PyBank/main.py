@@ -54,9 +54,7 @@ for row in pyBank:
     if firstRec == 0: 
         priorMonth=int(row[-1])
         firstRec = 1
-#    elif firstRec == 1:    
-#        firstRec = 2
-#        priorMonth = int(row[-1])
+
     else:
         changePL = int(row[-1]) - priorMonth 
         totalMonthlyChange += changePL
@@ -69,7 +67,7 @@ firstRec = 0
 #CACLUCATE AVERAGE MONTHLY CHANGE
 totalMonths = (len(monthlyChange_list) - 1)
 avgMonthlyChange = round(totalMonthlyChange / (totalMonths - 1), 2)
-#print(avgMonthlyChange) 
+
 
 #New List with months, p&l and monthly change - Optional
 pyBankUpdated = zip(pyBank, monthlyChange_list)
@@ -88,7 +86,6 @@ for row in pyBankUpdated:
 
 firstRec = 0
 
-#print(str(totalMonths))
 line1 = 'Financial Analysis \n'
 lines = ['-------------------- \n', 
 'Total Months: ' + str(totalMonths) +'\n',
@@ -96,11 +93,10 @@ lines = ['-------------------- \n',
 'Average Change: $' + str(avgMonthlyChange) + '\n',
 'Greatest Increase in Profits: ' + dateIncrease + '  ($' + str(greatestIncrease) + ')\n',
 'Greatest Decrease in Profits: ' + dateDecrease + '  ($' + str(greatestDecrease) + ')\n']
-#os.path.join('..', "Analysis", "Analysis.txt")
 my_file = open('../Analysis/Analysis.txt', 'w')
 my_file.write(line1)
 my_file.writelines(lines)
 my_file.close()
-#print("Writing Complete\n\n")
+print("Writing Complete\n\n")
 
-print(open('Analysis.txt').read())
+print(open('../Analysis/Analysis.txt').read())
