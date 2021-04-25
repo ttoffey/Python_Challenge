@@ -5,10 +5,11 @@ firstRec = 0
 pyBank = []
 pyBankUpdated = [] 
 
+csv_header=' '
 firstPL = 0
 lastPL = 0
 monthlyChange_list = ['Avg Monthly P&L Change', 0]
-
+totalPLChange = 0
 totalMonthlyChange = 0
 priorMonth = 0
 changePL = 0
@@ -24,9 +25,11 @@ greatestDecrease = 0
 
 
 #csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pybank\Resources','budget_data.csv')
-os.chdir('PyBank\Resources')
+#os.chdir('PyBank\Resources')
+os.chdir('Resources')
 with open('budget_data.csv', encoding="ISO 8859-1") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter = ',')
+    csv_header = next(csv_file)
     for row in csv_reader:
         pyBank.append(row)
         
@@ -35,23 +38,25 @@ for row in pyBank:
     if firstRec == 1:
         totalPL += int(row[1])
     else:
-        firstRec = 1   
+        firstRec = 1 
+        totalPL = int(row[1])  
 firstRec = 0     
 
 
-#CALCULATE TOTAL PL CHANGES
+#CALCULATE TOTAL PL CHANGES - Optional to Check Total Changes & Percent Change Below
 firstPL = int(pyBank[1][-1])
 lastPL = int(pyBank[totalMonths - 1][-1])
 totalPLChanges = lastPL - firstPL
-
+totalPercentCheck = totalPLChange / (len(monthlyChange_list) - 1)
 
 #CALCULATE AVERAGE CHANGE P&L - MONTHLY
 for row in pyBank:
-    if firstRec == 0:      
+    if firstRec == 0: 
+        priorMonth=int(row[-1])
         firstRec = 1
-    elif firstRec == 1:    
-        firstRec = 2
-        priorMonth = int(row[-1])
+#    elif firstRec == 1:    
+#        firstRec = 2
+#        priorMonth = int(row[-1])
     else:
         changePL = int(row[-1]) - priorMonth 
         totalMonthlyChange += changePL
@@ -64,9 +69,9 @@ firstRec = 0
 #CACLUCATE AVERAGE MONTHLY CHANGE
 totalMonths = (len(monthlyChange_list) - 1)
 avgMonthlyChange = round(totalMonthlyChange / (totalMonths - 1), 2)
-print(avgMonthlyChange) 
+#print(avgMonthlyChange) 
 
-#New List with months, p&l and monthly change
+#New List with months, p&l and monthly change - Optional
 pyBankUpdated = zip(pyBank, monthlyChange_list)
 
 #GREATEST INCREASE & GREATEST DECREASE
@@ -83,7 +88,7 @@ for row in pyBankUpdated:
 
 firstRec = 0
 
-
+#print(str(totalMonths))
 line1 = 'Financial Analysis \n'
 lines = ['-------------------- \n', 
 'Total Months: ' + str(totalMonths) +'\n',
@@ -91,10 +96,11 @@ lines = ['-------------------- \n',
 'Average Change: $' + str(avgMonthlyChange) + '\n',
 'Greatest Increase in Profits: ' + dateIncrease + '  ($' + str(greatestIncrease) + ')\n',
 'Greatest Decrease in Profits: ' + dateDecrease + '  ($' + str(greatestDecrease) + ')\n']
-my_file = open('file_read_write.txt', 'w')
+#os.path.join('..', "Analysis", "Analysis.txt")
+my_file = open('../Analysis/Analysis.txt', 'w')
 my_file.write(line1)
 my_file.writelines(lines)
 my_file.close()
-print("Writing Complete\n\n")
+#print("Writing Complete\n\n")
 
-print(open('file_read_write.txt').read())
+print(open('Analysis.txt').read())

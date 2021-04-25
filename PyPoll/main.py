@@ -104,8 +104,10 @@ percentCtrsList = [khanPercent, correyPercent, liPercent, otooleyPercent]
 #print(liPercent) #13.9999
 #print(otooleyPercent)  #2.9999
 countersList = [khan_ctr, correy_ctr, li_ctr, otooley_ctr]
-votesDictionary = {"Khan": [khan_ctr, khanPercent] "Correy": [correy_ctr, correy_ctr], "LiVotes": [li_ctr, liPercent], "O'Tooley": [otooley_ctr, otooleyPercent]}
-
+#votesDictionary = {"Khan": [khan_ctr, khanPercent] "Correy": [correy_ctr, correy_ctr], "LiVotes": [li_ctr, liPercent], "O'Tooley": [otooley_ctr, otooleyPercent]}
+votesDictionary = {"Khan": khan_ctr, "Correy": correy_ctr, "LiVotes": li_ctr, "O'Tooley": otooley_ctr}
 #print(votesDictionary["KhanVotes"])
-winnerList = votesDictionary.sorted
+winnersList = sorted(votesDictionary.values())
+winnersList.sorted(reverse=True)
+print(winnerList)
 
