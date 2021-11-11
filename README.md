@@ -1,7 +1,7 @@
 # Python_Challenge
 ## PyBank
 
-![Revenue](Images/revenue-per-lead.png)
+![Revenue](images/revenue-per-lead.png)
 
 * Create a Python script for analyzing the financial records of your company. Financial data to be analyzed is contained in the [budget_data.csv](PyBank/Resources/budget_data.csv). The dataset is composed of two columns: `Date` and `Profit/Losses`. (Thankfully, your company has rather lax standards for accounting so the records are simple.)
 
@@ -30,7 +30,7 @@ Greatest Decrease in Profits: Oct-2013  ($-2196167)
 
 ## PyPoll
 
-![Vote Counting](Images/Vote_counting.png)
+![Vote Counting](images/Vote_counting.png)
 
 * Help a small, rural town modernize its vote counting process.
 
@@ -52,10 +52,10 @@ Election Results
 ---------------------------- 
 Total Votes: 3521001
 ---------------------------- 
-Khan:  63.000%%  (2218231)
-Correy:  20.000%%  (704200)
-Li:  14.000%%  (492940)
-O'Tooley:  3.000%%  (105630)
+Khan:  63.000%%  (2218231) <br />
+Correy:  20.000%%  (704200) <br />
+Li:  14.000%%  (492940) <br />
+O'Tooley:  3.000%%  (105630) <br />
 ---------------------------- 
 Winner:  Khan
 ---------------------------- 
