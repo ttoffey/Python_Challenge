@@ -1,7 +1,7 @@
 # Python_Challenge
 ## PyBank
 
-![Revenue](Images/revenue-per-lead.png)
+![Revenue](images/revenue-per-lead.png)
 
 * Create a Python script for analyzing the financial records of your company. Financial data to be analyzed is contained in the [budget_data.csv](PyBank/Resources/budget_data.csv). The dataset is composed of two columns: `Date` and `Profit/Losses`. (Thankfully, your company has rather lax standards for accounting so the records are simple.)
 
