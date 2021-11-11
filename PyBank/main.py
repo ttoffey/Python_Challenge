@@ -26,7 +26,7 @@ greatestDecrease = 0
 
 #csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pybank\Resources','budget_data.csv')
 #os.chdir('PyBank\Resources')
-os.chdir('Resources')
+os.chdir('./PyBank/Resources')
 with open('budget_data.csv', encoding="ISO 8859-1") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter = ',')
     csv_header = next(csv_file)

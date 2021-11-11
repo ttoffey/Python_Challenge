@@ -16,8 +16,8 @@ candidateList = []
 percentVotes = 0
 winner = ' '
 
-#csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pybank\Resources','budget_data.csv')
-os.chdir('Resources')
+#csvpath = os.path.join('c:\users\TriciaToffey\desktop\githubs\python_challenge\pypoll\Resources','election_data.csv')
+os.chdir('./PyPoll/Resources')
 with open('election_data.csv', encoding="ISO 8859-1") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter = ',')
     csv_header = next(csv_file)
