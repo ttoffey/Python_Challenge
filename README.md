@@ -30,7 +30,7 @@ Greatest Decrease in Profits: Oct-2013  ($-2196167)
 
 ## PyPoll
 
-![Vote Counting](Images/Vote_counting.png)
+![Vote Counting](images/Vote_counting.png)
 
 * Help a small, rural town modernize its vote counting process.
 
